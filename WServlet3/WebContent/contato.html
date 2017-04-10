@@ -5,22 +5,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <form action="adicionaContato">
+    <form action="adicionarVisitante">
     	<fieldset>
-    		<legend>Informe seus dados</legend>
+    		<legend>HTML Contato</legend>
 		    <label for="Nome">Nome: </label>
 		    <input type="text" id="Nome" name="nome" />
+		    <br />
+		    <label for="Nome">Telefone: </label>
+		    <input type="text" id="Telefone" name="telefone" />
 		    <br />
 		    <label for="Email">E-mail: </label>
 		    <input type="text" id="Email" name="email" />
 		    <br />
-		    <label for="Endereço">Endereço: </label>
-		    <input type="text" id="Endereço" name="endereco" />
+			<label for=Mensagem></label>
+			<textarea cols=60 id="Mensagem" rows="10" name="mensagem" maxlength="500" wrap="hard" placeholder="Mensagem"></textarea>
 		    <br />
-		    <label for="DataNascimento">Data Nascimento: </label>
-		    <input type="text" id="DataNascimento" name="dataNascimento" />
-		    <br /> <br />
-		    <input type="submit" value="Gravar" />
+		    <input type="submit" value="Enviar" />
     	</fieldset>
     </form>
 </body>

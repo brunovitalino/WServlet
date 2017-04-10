@@ -1,3 +1,4 @@
+package br.com.bv.negocio;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -11,23 +12,25 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet
 (
-		name = "FaleConosco",
+		name = "ContatoInicial",
 		urlPatterns =
 		{
-				"/faleconosco",
-				"/enviarmensagem"
+				"/contatoInicial1",
+				"/contatoInicial2"
 		},
 		initParams =
 		{
 				@WebInitParam (name = "phNome", value = "Informe o nome"),
 				@WebInitParam (name = "phTelefone", value = "Informe o telefone"),
+				@WebInitParam (name = "phEmail", value = "Informe o e-mail"),
 				@WebInitParam (name = "phMensagem", value = "Escreva sua mensagem")
 		}		
 )
-public class Falar extends HttpServlet
+public class ContatarInicial extends HttpServlet
 {
 	private String phNome = "";
 	private String phTelefone = "";
+	private String phEmail = "";
 	private String phMensagem = "";
 	
 	@Override
@@ -36,6 +39,7 @@ public class Falar extends HttpServlet
 		super.init(config);
 		phNome = config.getInitParameter("phNome");
 		phTelefone = config.getInitParameter("phTelefone");
+		phEmail = config.getInitParameter("phEmail");
 		phMensagem = config.getInitParameter("phMensagem");
 	}
 	
@@ -46,20 +50,27 @@ public class Falar extends HttpServlet
 		out.println("<!DOCTYPE html5>");
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Fale Conosco Servlet3</title>");
+		out.println("<title>Servlet Contato Inicial</title>");
 		out.println("</head>");
 		out.println("<body>");
+		out.println("<form action=\"adicionarVisitante\">");
 		out.println("<fieldset>");
-		out.println("<legend>Deixe sua mensagem</legend>");
+		out.println("<legend>Servlet Contato Inicial</legend>");
 		out.println("<label for =\"Nome\">Nome: </label>");
-		out.println("<input type=\"text\" id=\"Nome\" placeholder=\""+phNome+"\" />");
+		out.println("<input type=\"text\" id=\"Nome\" name=\"nome\" placeholder=\""+phNome+"\" />");
 		out.println("<br>");
 		out.println("<label for =\"Telefone\">Telefone: </label>");
-		out.println("<input type=\"text\" id=\"Telefone\" placeholder=\""+phTelefone+"\" />");
+		out.println("<input type=\"text\" id=\"Telefone\" name=\"telefone\" placeholder=\""+phTelefone+"\" />");
+		out.println("<br>");
+		out.println("<label for =\"Email\">E-mail: </label>");
+		out.println("<input type=\"text\" id=\"Email\" name=\"email\" placeholder=\""+phEmail+"\" />");
 		out.println("<br>");
 		out.println("<label for =\"Mensagem\"></label>");
-		out.println("<textarea cols=60 id=\"Mensagem\" rows=\"10\" name=\"opiniao\" maxlength=\"500\" wrap=\"hard\" placeholder=\"" + phMensagem + "\"></textarea>");
-		out.println("</fieldset>");	
+		out.println("<textarea cols=60 id=\"Mensagem\" name=\"mensagem\" rows=\"10\" maxlength=\"500\" wrap=\"hard\" placeholder=\"" + phMensagem + "\"></textarea>");
+		out.println("<br />");
+	    out.println("<input type=\"submit\" value=\"Enviar\" />");
+		out.println("</fieldset>");
+		out.println("</form>");
 		out.println("</body>");
 		out.println("</html>");
 	}
