@@ -24,6 +24,8 @@ ALTER TABLE Visitante ADD id INT(6) UNSIGNED ZEROFILL AUTO_INCREMENT PRIMARY KEY
 ALTER TABLE Visitante DROP idOld;
 -- ----------------------------------------------------------------------------
 
+SELECT * FROM Visitante;
+
 
 
 

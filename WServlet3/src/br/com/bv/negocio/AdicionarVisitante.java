@@ -14,7 +14,8 @@ import br.com.bv.dados.VisitanteDao;
 @WebServlet("/adicionarVisitante")
 public class AdicionarVisitante extends HttpServlet
 {
-	
+	// O ideal seria utilizar o metodo doPost() ou entao incluir o atributo method=POST dentro da tag form da pagina requisitante,
+	// dessa forma os parametros nao seriam passados atraves da URL mas sim no corpo do protocolo HTTP
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		// Informa que a sequencia de bytes que procuramos no pacote http eh a de HTML
